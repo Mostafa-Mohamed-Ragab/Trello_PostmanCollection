@@ -1,0 +1,427 @@
+{
+	"info": {
+		"_postman_id": "da6aa5d3-2337-433b-986e-dde24bfd88f7",
+		"name": "Trello_API_Project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Board",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9e39a870-1f41-454a-b709-2dfdb67e139b",
+						"exec": [
+							"var jsonData = pm.response.json();\r",
+							"pm.environment.set(\"Board_id\", jsonData.id); \r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "f9b4cafd-2c68-48c9-8856-01df6b8b5ce7",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}boards/?name=Trello Board&key={{KEY}}&token={{TOKEN}}",
+					"host": [
+						"{{URL}}boards"
+					],
+					"path": [
+						""
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Trello Board"
+						},
+						{
+							"key": "key",
+							"value": "{{KEY}}"
+						},
+						{
+							"key": "token",
+							"value": "{{TOKEN}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Board",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a3548b87-1fbd-4dd1-8f0e-4588a15f72cc",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.name).to.eql(\"Trello Board\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "15380ffd-5c33-49fa-afff-d55bf7d231a5",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}boards/{{Board_id}}?key={{KEY}}&token={{TOKEN}}",
+					"host": [
+						"{{URL}}boards"
+					],
+					"path": [
+						"{{Board_id}}"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{KEY}}"
+						},
+						{
+							"key": "token",
+							"value": "{{TOKEN}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create List",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a3f29322-c14f-4f26-9590-ecb00a441c57",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json();\r",
+							"pm.environment.set(\"List_id\", jsonData.id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "9fa6997c-8dd9-47d0-aa7f-380062900f6d",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}lists?name=Trello List&idBoard={{Board_id}}&key={{KEY}}&token={{TOKEN}}",
+					"host": [
+						"{{URL}}lists"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Trello List"
+						},
+						{
+							"key": "idBoard",
+							"value": "{{Board_id}}"
+						},
+						{
+							"key": "key",
+							"value": "{{KEY}}"
+						},
+						{
+							"key": "token",
+							"value": "{{TOKEN}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get List",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a1377fa7-e765-4ead-a054-bc8b5cf2b0ce",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.name).to.eql(\"Trello List\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "f013356d-b21d-43b2-bae3-88273fa1ee5b",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}lists/{{List_id}}?key={{KEY}}&token={{TOKEN}}",
+					"host": [
+						"{{URL}}lists"
+					],
+					"path": [
+						"{{List_id}}"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{KEY}}"
+						},
+						{
+							"key": "token",
+							"value": "{{TOKEN}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Card",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "44465770-dcf9-427d-936c-e117b4ec2a75",
+						"exec": [
+							"var jsonData = pm.response.json();\r",
+							"pm.environment.set(\"Card_id\", jsonData.id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "35c4bd53-0062-4a5a-ae95-4bc635b7029a",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}cards?idList={{List_id}}&key={{KEY}}&token={{TOKEN}}&name=Trello Card",
+					"host": [
+						"{{URL}}cards"
+					],
+					"query": [
+						{
+							"key": "idList",
+							"value": "{{List_id}}"
+						},
+						{
+							"key": "key",
+							"value": "{{KEY}}"
+						},
+						{
+							"key": "token",
+							"value": "{{TOKEN}}"
+						},
+						{
+							"key": "name",
+							"value": "Trello Card"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Card",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eb230d6d-c1f8-459f-9e10-26a17c8061bb",
+						"exec": [
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.name).to.eql(\"Trello Card\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "0d90805f-ecd8-4fd1-b658-bc3025e7cc71",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}cards/{{Card_id}}?key={{KEY}}&token={{TOKEN}}",
+					"host": [
+						"{{URL}}cards"
+					],
+					"path": [
+						"{{Card_id}}"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{KEY}}"
+						},
+						{
+							"key": "token",
+							"value": "{{TOKEN}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Card",
+			"_postman_id": "ca01f0ba-4ffd-42b4-951b-fd227f5280ff",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}cards/{{Card_id}}?key={{KEY}}&token={{TOKEN}}",
+					"host": [
+						"{{URL}}cards"
+					],
+					"path": [
+						"{{Card_id}}"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{KEY}}"
+						},
+						{
+							"key": "token",
+							"value": "{{TOKEN}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Archive List",
+			"_postman_id": "86ad8c15-53cf-4c93-a14f-3ca34c2b3fa5",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}lists/{{List_id}}/closed?key={{KEY}}&token={{TOKEN}}&value=true",
+					"host": [
+						"{{URL}}lists"
+					],
+					"path": [
+						"{{List_id}}",
+						"closed"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{KEY}}"
+						},
+						{
+							"key": "token",
+							"value": "{{TOKEN}}"
+						},
+						{
+							"key": "value",
+							"value": "true",
+							"type": "text"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Board",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4cf9d65-af8f-4e2b-99ad-b000c0e50c59",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "ec44c796-2b41-4acb-866c-f8587a196db5",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}boards/{{Board_id}}?key={{KEY}}&token={{TOKEN}}",
+					"host": [
+						"{{URL}}boards"
+					],
+					"path": [
+						"{{Board_id}}"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{KEY}}"
+						},
+						{
+							"key": "token",
+							"value": "{{TOKEN}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
