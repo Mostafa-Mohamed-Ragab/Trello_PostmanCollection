@@ -479,6 +479,39 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Delete Checklist",
+			"id": "d5766b44-f50a-42c6-a0f4-6aaba36b2a69",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}cards/{{Card_id}}/checkItem/{{Checklist_id}}?key={{KEY}}&token={{TOKEN}}",
+					"host": [
+						"{{URL}}cards"
+					],
+					"path": [
+						"{{Card_id}}",
+						"checkItem",
+						"{{Checklist_id}}"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{KEY}}"
+						},
+						{
+							"key": "token",
+							"value": "{{TOKEN}}"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
