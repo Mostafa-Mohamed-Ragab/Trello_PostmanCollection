@@ -220,7 +220,11 @@
 						"id": "44465770-dcf9-427d-936c-e117b4ec2a75",
 						"exec": [
 							"var jsonData = pm.response.json();\r",
-							"pm.environment.set(\"Card_id\", jsonData.id);"
+							"pm.environment.set(\"Card_id\", jsonData.id);\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
 						],
 						"type": "text/javascript"
 					}
