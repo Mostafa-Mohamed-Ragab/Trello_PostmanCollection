@@ -430,7 +430,7 @@
 				"disableBodyPruning": true
 			},
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [],
 				"url": {
 					"raw": "{{URL}}cards/{{Card_id}}/checklists?key={{KEY}}&token={{TOKEN}}",
