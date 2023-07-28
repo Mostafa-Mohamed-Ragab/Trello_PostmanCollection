@@ -1,0 +1,1 @@
+This repo contains a Postman collection. That's responsible for testing and verifying (Trello App) functionality through API methods.
