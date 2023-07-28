@@ -307,6 +307,55 @@
 			"response": []
 		},
 		{
+			"name": "Create Checklist",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d60ab070-c471-4e68-ae79-2eee2e94b4d2",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"var jsonData = pm.response.json();\r",
+							"pm.environment.set(\"Checklist_id\", jsonData.id);\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "795d6c5e-d250-4670-ab54-5fe426998913",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}cards/{{Card_id}}/checklists?key={{KEY}}&token={{TOKEN}}",
+					"host": [
+						"{{URL}}cards"
+					],
+					"path": [
+						"{{Card_id}}",
+						"checklists"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{KEY}}"
+						},
+						{
+							"key": "token",
+							"value": "{{TOKEN}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Delete Card",
 			"id": "ca01f0ba-4ffd-42b4-951b-fd227f5280ff",
 			"protocolProfileBehavior": {
@@ -408,38 +457,6 @@
 					],
 					"path": [
 						"{{Board_id}}"
-					],
-					"query": [
-						{
-							"key": "key",
-							"value": "{{KEY}}"
-						},
-						{
-							"key": "token",
-							"value": "{{TOKEN}}"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Create Checklist",
-			"id": "795d6c5e-d250-4670-ab54-5fe426998913",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "POST",
-				"header": [],
-				"url": {
-					"raw": "{{URL}}cards/{{Card_id}}/checklists?key={{KEY}}&token={{TOKEN}}",
-					"host": [
-						"{{URL}}cards"
-					],
-					"path": [
-						"{{Card_id}}",
-						"checklists"
 					],
 					"query": [
 						{
