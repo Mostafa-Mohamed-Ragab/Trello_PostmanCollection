@@ -27,7 +27,7 @@
 					}
 				}
 			],
-			"_postman_id": "f9b4cafd-2c68-48c9-8856-01df6b8b5ce7",
+			"id": "f9b4cafd-2c68-48c9-8856-01df6b8b5ce7",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -80,7 +80,7 @@
 					}
 				}
 			],
-			"_postman_id": "15380ffd-5c33-49fa-afff-d55bf7d231a5",
+			"id": "15380ffd-5c33-49fa-afff-d55bf7d231a5",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -128,7 +128,7 @@
 					}
 				}
 			],
-			"_postman_id": "9fa6997c-8dd9-47d0-aa7f-380062900f6d",
+			"id": "9fa6997c-8dd9-47d0-aa7f-380062900f6d",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -182,7 +182,7 @@
 					}
 				}
 			],
-			"_postman_id": "f013356d-b21d-43b2-bae3-88273fa1ee5b",
+			"id": "f013356d-b21d-43b2-bae3-88273fa1ee5b",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -226,7 +226,7 @@
 					}
 				}
 			],
-			"_postman_id": "35c4bd53-0062-4a5a-ae95-4bc635b7029a",
+			"id": "35c4bd53-0062-4a5a-ae95-4bc635b7029a",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -277,7 +277,7 @@
 					}
 				}
 			],
-			"_postman_id": "0d90805f-ecd8-4fd1-b658-bc3025e7cc71",
+			"id": "0d90805f-ecd8-4fd1-b658-bc3025e7cc71",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -308,7 +308,7 @@
 		},
 		{
 			"name": "Delete Card",
-			"_postman_id": "ca01f0ba-4ffd-42b4-951b-fd227f5280ff",
+			"id": "ca01f0ba-4ffd-42b4-951b-fd227f5280ff",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -339,7 +339,7 @@
 		},
 		{
 			"name": "Archive List",
-			"_postman_id": "86ad8c15-53cf-4c93-a14f-3ca34c2b3fa5",
+			"id": "86ad8c15-53cf-4c93-a14f-3ca34c2b3fa5",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -394,7 +394,7 @@
 					}
 				}
 			],
-			"_postman_id": "ec44c796-2b41-4acb-866c-f8587a196db5",
+			"id": "ec44c796-2b41-4acb-866c-f8587a196db5",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -408,6 +408,38 @@
 					],
 					"path": [
 						"{{Board_id}}"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{KEY}}"
+						},
+						{
+							"key": "token",
+							"value": "{{TOKEN}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Checklist",
+			"id": "795d6c5e-d250-4670-ab54-5fe426998913",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}cards/{{Card_id}}/checklists?key={{KEY}}&token={{TOKEN}}",
+					"host": [
+						"{{URL}}cards"
+					],
+					"path": [
+						"{{Card_id}}",
+						"checklists"
 					],
 					"query": [
 						{
